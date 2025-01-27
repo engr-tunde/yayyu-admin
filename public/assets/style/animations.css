@@ -45,6 +45,28 @@
     transform: translateY(-20px);
   }
 }
+@keyframes scaleItem {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.5);
+  }
+  100% {
+    transform: translateY(0.8);
+  }
+}
+@keyframes scaleBannerImg {
+  0% {
+    transform: scale(0.6);
+  }
+  100% {
+    transform: scale(1);
+  }
+  100% {
+    transform: translateY(0.8);
+  }
+}
 
 .dancingSlide {
   animation: dancingSlide 3s linear infinite;
@@ -54,4 +76,10 @@
 }
 .updown {
   animation: updown 3s linear infinite;
+}
+.scaleItem {
+  animation: scaleItem 3s linear infinite;
+}
+.scaleBannerImg {
+  animation: scaleBannerImg 3s linear infinite;
 }

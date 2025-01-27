@@ -9,9 +9,11 @@ const AboutPage = () => {
   return (
     <>
       <Head pageTitle="About Us" />
-      <AboutSectionOne />
-      <AboutSectionTwo />
-      <AboutSectionThree />
+      <div className="bg-titusDarkBG">
+        <AboutSectionOne />
+        <AboutSectionTwo />
+        <AboutSectionThree />
+      </div>
     </>
   );
 };

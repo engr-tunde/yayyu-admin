@@ -1,42 +1,124 @@
 import React from "react";
-import { FaArrowCircleRight } from "react-icons/fa";
+import {
+  FaArrowCircleRight,
+  FaFacebook,
+  FaInstagram,
+  FaTwitter,
+} from "react-icons/fa";
 import { Link } from "react-router-dom";
 
 const AboutSectionThree = () => {
   return (
-    <div className="w-[100vw] bg-[#000000e3] flex flex-col items-center">
-      <div className="max-w-[1000px] pt-[100px] md:pt-[100px] pb-[180px] md:pb-[170px] items-center px-10 md:px-0">
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-7">
-          <div className="col-span-1 flex justify-center items-center">
+    <div className="w-full" id="team">
+      <div className="container pt-[100px] md:pt-[50px] pb-[180px] md:pb-[170px] items-center px-10 md:px-0">
+        <div className="w-full lg:w-[70%] mx-auto text-center mb-10">
+          <h1 className=" text-white text-[30px] md:text-[40px] mb-5">
+            Our Team
+          </h1>
+          <p className="font-medium">
+            Meet our team of professionals who work every day to enhance your
+            experience in the cryptocurrency field.
+          </p>
+        </div>
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-7 lg:gap-16 px-4 lg:px-0">
+          <div className="col-span-1 flex flex-col gap-5 md:gap-5 team-card pb-10">
             <img
-              src="/assets/images/intlligence-2.png"
-              className="w-[85%] left-box"
+              src="/assets/images/avatar2.jpg"
               alt=""
+              className="w-full h-[200px] lg:h-[250px] rounded-t-lg"
             />
-          </div>
-          <div className="col-span-1 flex flex-col gap-5 md:gap-10">
-            <h1 className=" text-white text-[30px] md:text-[40px] uppercase ">
-              Intuitive, easy-to-use platform
-            </h1>
-            <p>
-              Elder Intelligence improves operational efficiency by reducing
-              false positives so that your digital assets always find their way
-              back when you loss them illegally. <br /> <br />
-              Our intuitive user interface not only lets you quickly explore and
-              investigate multiple cryptoassets, but also easily share your
-              findings in a clear and engaging visual format. <br /> <br />
-              Our user-friendly interface means that you can quickly get up to
-              speed - without specialist training - and obtain the valuable
-              insights you need fast.
-            </p>
-            <Link to="/register" className="hidden md:flex">
-              <div className="btnn1 text-sm font-bold flex justify-center items-center hover:scale-105 ease-in duration-300">
-                <span className="mr-2">Get Started</span>
-                <span>
-                  <FaArrowCircleRight />
-                </span>
+            <div className="px-6 flex flex-col items-center">
+              <p className="text-xl lg:text-xl font-semibold mb-3 text-[#ffffffc7]">
+                Raymond Ray
+              </p>
+              <p className="mb-3">Founder, Team Lead</p>
+              <div className="flex gap-6 items-center">
+                <Link
+                  to="https://x.com/"
+                  className="rounded-full shadow-md shadow-titusGreenFaded p-3 cursor-pointer hover:scale-105 ease-in duration-300"
+                >
+                  <FaTwitter />
+                </Link>
+                <Link
+                  to="https://instagram.com/"
+                  className="rounded-full shadow-md shadow-titusGreenFaded p-3 cursor-pointer hover:scale-105 ease-in duration-300"
+                >
+                  <FaInstagram />
+                </Link>
+                <Link
+                  to="https://facebook.com/"
+                  className="rounded-full shadow-md shadow-titusGreenFaded p-3 cursor-pointer hover:scale-105 ease-in duration-300"
+                >
+                  <FaFacebook />
+                </Link>
               </div>
-            </Link>
+            </div>
+          </div>
+          <div className="col-span-1 flex flex-col gap-5 md:gap-5 team-card pb-10">
+            <img
+              src="/assets/images/avatar2.jpg"
+              alt=""
+              className="w-full h-[200px] lg:h-[250px] rounded-t-lg"
+            />
+            <div className="px-6 flex flex-col items-center">
+              <p className="text-xl lg:text-xl font-semibold mb-3 text-[#ffffffc7]">
+                Racheal David
+              </p>
+              <p className="mb-3">Marketing Manager</p>
+              <div className="flex gap-6 items-center">
+                <Link
+                  to="https://x.com/"
+                  className="rounded-full shadow-md shadow-titusGreenFaded p-3 cursor-pointer hover:scale-105 ease-in duration-300"
+                >
+                  <FaTwitter />
+                </Link>
+                <Link
+                  to="https://instagram.com/"
+                  className="rounded-full shadow-md shadow-titusGreenFaded p-3 cursor-pointer hover:scale-105 ease-in duration-300"
+                >
+                  <FaInstagram />
+                </Link>
+                <Link
+                  to="https://facebook.com/"
+                  className="rounded-full shadow-md shadow-titusGreenFaded p-3 cursor-pointer hover:scale-105 ease-in duration-300"
+                >
+                  <FaFacebook />
+                </Link>
+              </div>
+            </div>
+          </div>
+          <div className="col-span-1 flex flex-col gap-5 md:gap-5 team-card pb-10">
+            <img
+              src="/assets/images/avatar2.jpg"
+              alt=""
+              className="w-full h-[200px] lg:h-[250px] rounded-t-lg"
+            />
+            <div className="px-6 flex flex-col items-center">
+              <p className="text-xl lg:text-xl font-semibold mb-3 text-[#ffffffc7]">
+                Tee King
+              </p>
+              <p className="mb-3">Chief Technology Officer</p>
+              <div className="flex gap-6 items-center">
+                <Link
+                  to="https://x.com/"
+                  className="rounded-full shadow-md shadow-titusGreenFaded p-3 cursor-pointer hover:scale-105 ease-in duration-300"
+                >
+                  <FaTwitter />
+                </Link>
+                <Link
+                  to="https://instagram.com/"
+                  className="rounded-full shadow-md shadow-titusGreenFaded p-3 cursor-pointer hover:scale-105 ease-in duration-300"
+                >
+                  <FaInstagram />
+                </Link>
+                <Link
+                  to="https://facebook.com/"
+                  className="rounded-full shadow-md shadow-titusGreenFaded p-3 cursor-pointer hover:scale-105 ease-in duration-300"
+                >
+                  <FaFacebook />
+                </Link>
+              </div>
+            </div>
           </div>
         </div>
       </div>

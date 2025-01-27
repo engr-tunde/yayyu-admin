@@ -1,3 +1,4 @@
+import axios from "axios";
 import React, { useState } from "react";
 import { AiOutlineClose, AiOutlineMenu } from "react-icons/ai";
 import {
@@ -9,6 +10,8 @@ import {
   FaSignOutAlt,
 } from "react-icons/fa";
 import { Link } from "react-router-dom";
+import { errorNotification, successNotification } from "../../utils/helpers";
+axios.defaults.withCredentials = true;
 
 const NavBarDashboard = ({ userData }) => {
   const [nav, setNav] = useState(false);
@@ -46,7 +49,7 @@ const NavBarDashboard = ({ userData }) => {
 
   return (
     <>
-      <div className="w-full shadow-2xl z-[100] py-3 md:py-4 px-5 md:px-10 bg-[#00000000] md:bg-[#0A0D16]">
+      <div className="w-full shadow-2xl z-[100] py-4 md:py-4 px-5 md:px-10 bg-[#00000000] md:bg-[#0A0D16]">
         <div className="flex justify-between items-center w-full h-full">
           <Link to="/" className="flex flex-col gap-0">
             <p className="uppercase font-bold text-[20px] md:text-[25px] text-white tracking-[8px] md:tracking-[10px] leading-[12px] md:leading-[20px] mb-0">
@@ -147,7 +150,9 @@ const NavBarDashboard = ({ userData }) => {
             </ul>
             <div onClick={handleNavToggle} className="md:hidden">
               <div className="btnn2 text-sm font-bold flex justify-center items-center hover:scale-105 ease-in duration-300">
-                <span className="mr-2">Tee's Menu</span>
+                <span className="mr-2">
+                  {userData ? `${userData.name.split(" ")[0]}` : `User`}'s Menu
+                </span>
                 <span>
                   <FaBars />
                 </span>

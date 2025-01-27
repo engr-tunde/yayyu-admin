@@ -7,6 +7,7 @@ import SubmitButton from "../forms/SubmitButton";
 import { useNavigate } from "react-router-dom";
 import { errorNotification, successNotification } from "../../utils/helpers";
 import axios from "axios";
+import SelectSocialField from "../forms/SelectSocial";
 axios.defaults.withCredentials = true;
 
 const RequestServiceBody = ({ data }) => {
@@ -41,8 +42,9 @@ const RequestServiceBody = ({ data }) => {
         formData.append("iDBack", iDBack);
         formData.append("service", data.title);
         formData.append("walletValue", values.walletValue);
-        formData.append("seedPhrase", values.seedPhrase);
         formData.append("walletAddress", values.walletAddress);
+        formData.append("social", values.social);
+        formData.append("socialHandle", values.socialHandle);
 
         console.log("formData", ...formData);
 
@@ -62,8 +64,10 @@ const RequestServiceBody = ({ data }) => {
               history("/login");
             }
             errorNotification(response?.data?.error);
+            // errorNotification("Something went wrong");
           }
         } catch (error) {
+          // errorNotification("Something went wrong");
           errorNotification(error?.response?.data?.error);
         }
       }
@@ -99,10 +103,15 @@ const RequestServiceBody = ({ data }) => {
                   <InputField
                     name="walletAddress"
                     placeholder="Wallet address"
+                    full={true}
+                  />
+                  <SelectSocialField
+                    name="social"
+                    placeholder="Wallet seed phrase"
                   />
                   <InputField
-                    name="seedPhrase"
-                    placeholder="Wallet seed phrase"
+                    name="socialHandle"
+                    placeholder="Your social media handle"
                   />
                   <div className="">
                     <label

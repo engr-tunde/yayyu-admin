@@ -8,6 +8,7 @@ const DashboardBody = () => {
   const handleRequst = (item) => {
     history("/request-service", { state: { item: item } });
   };
+
   // const copyErc20Text = () => {
   //   const txt = walletData && walletData.erc20;
   //   const input = document.createElement('input');

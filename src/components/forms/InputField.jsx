@@ -6,6 +6,7 @@ const InputField = ({
   name,
   placeholder,
   type = "text",
+  full = false,
   className,
   disabled = false,
   ...rest
@@ -23,7 +24,8 @@ const InputField = ({
   };
 
   return (
-    <div className="col-span-1">
+    // <div className="col-span-1">
+    <div className={full ? "col-span-1 md:col-span-2" : "col-span-1"}>
       {type === "password" ? (
         <div className="pass-field border rounded-md w-[100%] bg-transparent flex items-center gap-1 pe-1">
           <input

@@ -5,16 +5,22 @@ import RowTwoSection from "../../components/home/HomeSectionTwo";
 import HomeSectionThree from "../../components/home/HomeSectionThree";
 import HomeSectionFour from "../../components/home/HomeSectionFour";
 import HomeSectionFive from "../../components/home/HomeSectionFive";
+import HomeSectionSix from "../../components/home/HomeSectionSix";
+import HomeSectionSeven from "../../components/home/HomeSectionSeven";
 
 const HomePage = () => {
   return (
     <>
-      <Head pageTitle="Welcome to Elder Intelligence" />
-      <HomeSectionOne />
-      <RowTwoSection />
-      <HomeSectionThree />
-      <HomeSectionFour />
-      <HomeSectionFive />
+      <Head pageTitle="Welcome to Titus Exchange" />
+      <div className="bg-black">
+        <HomeSectionOne />
+        <RowTwoSection />
+        <HomeSectionThree />
+        <HomeSectionFour />
+        <HomeSectionFive />
+        <HomeSectionSix />
+        <HomeSectionSeven />
+      </div>
     </>
   );
 };

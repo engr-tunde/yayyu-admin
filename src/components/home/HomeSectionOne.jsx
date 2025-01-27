@@ -1,42 +1,39 @@
 import React from "react";
-import bannerVidBg from "../../../public/assets/videos/banner-bg.mp4";
-import NavBar from "../NavBar";
 import { Link } from "react-router-dom";
-import { FaArrowCircleRight } from "react-icons/fa";
+import { FaCoins } from "react-icons/fa";
 
 const HomeSectionOne = () => {
   return (
-    <div className="h-[100vh] w-[100vw] bg-[#000000eb]">
-      {/* <video src={bannerVidBg} autoPlay loop muted className="banner-vd" /> */}
-      <div className="banner-vd"></div>
-      <NavBar />
-      <div className="top-[100px] container h-[80vh] md:h-[80%] md:py-10 relative px-8 md:px-10 flex flex-col gap-3 md:gap-6">
-        <div className="relative w-[100%] md:w-[45%] h-[65vh] md:h-[80vh]">
-          <div className="absolute left-0 bottom-5 md:bottom-3 flex flex-col gap-5">
-            <h1 className=" text-white text-[30px] md:text-[40px] uppercase ">
-              Deamonizing the blockchain industry
+    <div className="bg-black relative z-10">
+      <div className="container pt-32 lg:pt-32 pb-[200px] lg:pb-[150px] px-8 md:px-10 lg:px-0">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-20 items-center">
+          <div className="col-span-1 flex flex-col gap-8 lg:gap-10">
+            <h1 className="text-[36px] lg:text-[60px] font-bold leading-[1.2em] font-sans text-[#fff]">
+              Your <span className="text-titusGreen"> Number 1</span> Gateway to
+              Web3
             </h1>
-            <Link to="/register" className="flex">
-              <div className="btnn1 text-sm font-bold flex justify-center items-center hover:scale-105 ease-in duration-300">
-                <span className="mr-2">Explore platform</span>
-                <span>
-                  <FaArrowCircleRight />
-                </span>
-              </div>
+            <p className="">
+              Buy, Sell, Trade with Peers and Swap Cryptos in Lightening Speed,
+              Simple Way& Low Fees
+            </p>
+            <Link
+              to=""
+              className="w-max btnn1 flex items-center gap-2 py-3 px-10 font-semibold"
+            >
+              <div className="span">Swap Your Assets</div>
+              <FaCoins className="text-black" />
             </Link>
           </div>
-        </div>
-        <div
-          className="text-[17px] bg-[#000] px-5 py-2 text-white rounded-2xl"
-          style={{ border: "1px dashed #fff" }}
-        >
-          <marquee behavior="" direction="">
-            Welcome to {import.meta.env.VITE_APP_NAME}. A platform where your
-            cyrptocurrecny related problesms are solved through inteligence
-            gathering
-          </marquee>
+          <div className="col-span-1">
+            <img src="/assets/images/bg.jpg" alt="" className="updown" />
+          </div>
         </div>
       </div>
+      <img
+        src="/assets/images/hand.png"
+        alt=""
+        className="w-[300px] lg:w-[500px] absolute right-0 bottom-0 lg:-bottom-40 z-0"
+      />
     </div>
   );
 };

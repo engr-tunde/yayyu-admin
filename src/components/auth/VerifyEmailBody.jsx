@@ -82,7 +82,7 @@ const VerifyEmailBody = () => {
 
   return (
     <>
-      <div className="w-[100wv] h-[100vh] bg-[#0A0D16]">
+      <div className="w-[100wv] h-[100vh] bg-titusDarkBG">
         <div className="max-w-[500px] h-full mx-auto px-10 md:px-7 flex flex-col items-center justify-center pt-[90px] pb-[150px] md:py-0">
           <div className="flex flex-col items-center gap-2 px-3 w-full">
             <Link to="/" className="flex flex-col gap-0">

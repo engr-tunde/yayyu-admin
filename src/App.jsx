@@ -6,13 +6,10 @@ import ForgotPasswordPage from "./pages/auth/forgot-password/index.jsx";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import EditPasswordPage from "./pages/dashboard/EditPasswordPage.jsx";
-import TransactionsPage from "./pages/transactions/index.jsx";
 import VerifyEmailPage from "./pages/auth/verify-email/index.jsx";
 import ResetPasswordPage from "./pages/auth/reset-password/index.jsx";
 import RegisterPage from "./pages/auth/register/index.jsx";
-import HomePage from "./pages/home/index.jsx";
 import AboutPage from "./pages/about/index.jsx";
-import MediaPage from "./pages/media/index.jsx";
 import Footer from "./components/Footer.jsx";
 import MarketsPage from "./pages/markets/index.jsx";
 import ContactPage from "./pages/contact/index.jsx";
@@ -20,11 +17,19 @@ import APIPage from "./pages/api/index.jsx";
 import EditProfilePage from "./pages/dashboard/EditProfilePage.jsx";
 import RequestPage from "./pages/dashboard/RequestPage.jsx";
 import MyRequestsPage from "./pages/dashboard/MyRequestsPage.jsx";
+import NavBar from "./components/NavBar.jsx";
+import CareersPage from "./pages/careers/index.jsx";
+import IndustryUpdatesPage from "./pages/blog/industry-updates.jsx";
+import ProductUpdatesPage from "./pages/blog/product-updates.jsx";
+import BlogSinglePage from "./pages/blog/blog-single-page.jsx";
+import M2MPage from "./pages/m2m/index.jsx";
+import HomePage from "./pages/home/index";
 
 function App() {
   return (
     <>
       <BrowserRouter>
+        <NavBar />
         <div className="">
           <ToastContainer
             position="top-right"
@@ -40,7 +45,13 @@ function App() {
           <Routes>
             <Route path="/" element={<HomePage />} />
             <Route path="/about" element={<AboutPage />} />
-            <Route path="/media" element={<MediaPage />} />
+            <Route path="/careers" element={<CareersPage />} />
+            <Route path="/industry-updates" element={<IndustryUpdatesPage />} />
+            <Route path="/product-updates" element={<ProductUpdatesPage />} />
+            <Route path="/posts/:permalink" element={<BlogSinglePage />} />
+
+            <Route path="/m2m" element={<M2MPage />} />
+
             <Route path="/markets" element={<MarketsPage />} />
             <Route path="/contact" element={<ContactPage />} />
             <Route path="/api" element={<APIPage />} />

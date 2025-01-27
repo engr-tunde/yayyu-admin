@@ -1,69 +1,100 @@
 import React from "react";
+import { IoIosSpeedometer } from "react-icons/io";
+import { RiSecurePaymentFill } from "react-icons/ri";
+import { MdDesignServices, MdOutlineSupportAgent } from "react-icons/md";
 
 const HomeSectionFive = () => {
   return (
-    <div className="w-[100vw] bg-[#000000eb] flex flex-col items-center">
-      <div className="max-w-[1000px] pt-[100px] pb-[180px] md:pt-[150px] md:pb-[150px] items-center px-6 md:px-0">
-        <div className="w-full md:w-[70%] mx-auto text-center mb-7">
-          <h1 className="text-white text-[30px] md:text-[40px] uppercase mb-5 ">
-            How do we help you recover your lost funds and other issues?
-          </h1>
-          <p>
-            We get all your issues solved by bringing machine effort and human
-            intuition together
-          </p>
-        </div>
-        <div className="p-5 rounded-2xl bg-black flex flex-col gap-5 right-box">
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-7 md:gap-[30px]">
-            <div
-              className="col-span-1 p-5 rounded-lg flex flex-col gap-5 hover:scale-105 ease-in duration-300"
-              style={{ border: "1px dashed #888" }}
-            >
-              <div className="flex items-center gap-10">
-                <p
-                  className="w-[40px] h-[40px] flex justify-center items-center"
-                  style={{ borderRadius: "50%", border: "1px solid #fff" }}
-                >
-                  1
-                </p>
-                <p className="text-[20px] font-semibold">Machine Effort</p>
-              </div>
-              <p>
-                We crunch massive amounts of information from a plurality of
-                reliable sources, pulling it all into our growing stream of
-                signals and datafeeds:
+    <div
+      className="w-[100vw] bg-titusDarkBG flex flex-col items-center"
+      id="features"
+    >
+      <div className="container py-[100px] md:py-[170px] items-center px-7 md:px-0">
+        <div className="grid grid-cols-1 md:grid-cols-9 gap-20 md:gap-12">
+          <div className="col-span-4 flex flex-col justify-center gap-5">
+            <div className="w-full mx-auto flex flex-col items-start gap-6 mb-1">
+              <p className="rounded-full px-8 py-4 bg-[#1B1B1D] text-[#999999] font-semibold">
+                Features
               </p>
-              <ul>
-                <li className="li">On-chain data</li>
-                <li className="li">Holder behavior activity</li>
-                <li className="li">Social media activity</li>
-                <li className="li">Others</li>
-              </ul>
+              <h1 className=" text-[30px] md:text-[36px] leading-[1.3em] text-white">
+                Why Trade With Us?
+              </h1>
+              <p className="text-[#ACACAC] text-md text-start">
+                You can buy and sell 150+ cryptocurrencies with 20+ fiat
+                currencies using bank transfers on your credit or debit card and
+                enjoy the following features
+              </p>
             </div>
-            <div
-              className="col-span-1 p-5 rounded-lg flex flex-col gap-5 hover:scale-105 ease-in duration-300"
-              style={{ border: "1px dashed #888" }}
-            >
-              <div className="flex items-center gap-10">
-                <p
-                  className="w-[40px] h-[40px] flex justify-center items-center"
-                  style={{ borderRadius: "50%", border: "1px solid #fff" }}
-                >
-                  2
-                </p>
-                <p className="text-[20px] font-semibold">Human Intuition</p>
+            <img
+              src="/assets/images/home-why-us.png"
+              alt=""
+              className="dancingSlide rounded-[0px]"
+            />
+          </div>
+          <div className="col-span-5 flex flex-col gap-12 md:gap-10 text-titusLightText">
+            <div className="flex flex-col gap-10 lg:gap-6">
+              <div className="feature-card">
+                <div className="h-max rounded-full p-3 bg-titusGreen text-black text-3xl">
+                  <IoIosSpeedometer />
+                </div>
+                <div className="flex flex-col gap-2">
+                  <span className="text-white text-[16px] lg:text-xl font-medium">
+                    Lightning Speed Transactions
+                  </span>
+                  <span className="text-sm font-light">
+                    Our platform is designed to meet surge demand. Our servers
+                    can isolate lightweight, virtualized environments and
+                    maintain extensive control over usage.
+                  </span>
+                </div>
               </div>
-              <p>
-                Our team therefore test the data integrity and viability, and
-                perform some operations that in turn lead us to resolve the
-                issues you have around your crypto assets:
-              </p>
-              <ul>
-                <li className="li">On-chain operations</li>
-                <li className="li">Issue resolve activities</li>
-                <li className="li">Unlifting assets restrictions</li>
-                <li className="li">Others</li>
-              </ul>
+              <div className="feature-card">
+                <div className="h-max rounded-full p-3 bg-titusGreen text-black text-3xl">
+                  <RiSecurePaymentFill />
+                </div>
+                <div className="flex flex-col gap-2">
+                  <span className="text-white text-[16px] lg:text-xl font-medium">
+                    Advanced Security
+                  </span>
+                  <span className="text-sm font-light">
+                    To ensure {import.meta.env.VITE_APP_NAME}'s security, we are
+                    investing in periodic audits and deploying enterprise grade
+                    security shield to protect your assets 24/7
+                  </span>
+                </div>
+              </div>
+              <div className="feature-card">
+                <div className="h-max rounded-full p-3 bg-titusGreen text-black text-3xl">
+                  <MdDesignServices />
+                </div>
+                <div className="flex flex-col gap-2">
+                  <span className="text-white text-[16px] lg:text-xl font-medium">
+                    Intuitive Interface
+                  </span>
+                  <span className="text-sm font-light">
+                    Trading on {import.meta.env.VITE_APP_NAME} is a remarkable
+                    experience even for neophytes. Having created multiple
+                    infrastructures globally, it was seamless to create an
+                    intuitive interface.
+                  </span>
+                </div>
+              </div>
+              <div className="feature-card">
+                <div className="h-max rounded-full p-3 bg-titusGreen text-black text-3xl">
+                  <MdOutlineSupportAgent />
+                </div>
+                <div className="flex flex-col gap-2">
+                  <span className="text-white text-[16px] lg:text-xl font-medium">
+                    24/7 Support
+                  </span>
+                  <span className="text-sm font-light">
+                    With a dedicated and experienced CS team on standby
+                    round-the-clock across boards,{" "}
+                    {import.meta.env.VITE_APP_NAME} is dedicated to ensuring you
+                    have seamless transactions.
+                  </span>
+                </div>
+              </div>
             </div>
           </div>
         </div>
