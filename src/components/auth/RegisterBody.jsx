@@ -5,8 +5,6 @@ import { validateSignup } from "../../utils/validate";
 import { signUpValues } from "../../utils/initialValues";
 import SubmitButton from "../forms/SubmitButton";
 import { Link, useNavigate } from "react-router-dom";
-import SelectCountryField from "../forms/SelectCountryField";
-import SelectNetworkField from "../forms/SelectNetworkField";
 import { errorNotification, successNotification } from "../../utils/helpers";
 import axios from "axios";
 
@@ -49,8 +47,9 @@ const RegisterBody = () => {
   return (
     <>
       <div className="w-[100vw] md:h-[100vh] bg-titusDarkBG">
-        <div className="max-w-[500px] h-full mx-auto px-5 md:px-0 flex flex-col items-center justify-center pt-[90px] pb-[150px] md:py-0">
-          <div className="flex flex-col items-center px-0">
+        {/* <div className="w-full md:w-[500px] rounded-xl p-10 border-[#30f5de65] border-[1px] mx-auto px-5 md:px-0 flex flex-col items-center justify-center pt-[90px]"> */}
+        <div className="max-w-[500px] h-full mx-auto px-10 md:px-7 flex flex-col items-center justify-center pt-[150px] pb-[150px] md:py-0 ">
+          <div className="flex flex-col items-center px-0 w-full">
             <Link
               to="/"
               className="flex gap-2 items-center justify-center mb-2"
@@ -75,7 +74,7 @@ const RegisterBody = () => {
               Sign up to get started
             </div>
           </div>
-          <div className="py-2">
+          <div className="py-2 w-full md:w-[80%] mx-auto">
             <CustomFormik
               initialValues={initialValues}
               validationSchema={validationSchema}
@@ -100,7 +99,7 @@ const RegisterBody = () => {
                 />
               </div>
               <SubmitButton title="Sign up" className="mt-6 w-[100%]" />
-              <div className="text-[13px] md:text-[16px] text-center mt-[20px] flex justify-between gap-2">
+              <div className="text-[13px] md:text-[14px] text-center mt-[20px] flex justify-between gap-2">
                 Already have an account?
                 <Link to="/login" className="text-[#fff] font-semibold">
                   Login instead

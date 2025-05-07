@@ -1,3 +1,4 @@
+import { useEffect } from "react";
 import { toast } from "react-toastify";
 
 export const successNotification = (message) => toast.success(message);
@@ -7,7 +8,7 @@ export const infoNotification = (message) => toast.info(message);
 export const formatter = (amount) => {
   const fm = new Intl.NumberFormat("en-US", {
     style: "currency",
-    currency: "USD",
+    currency: "NGN",
   });
   return fm.format(amount);
 };
@@ -35,4 +36,30 @@ export const shuffleArray = (array) => {
   } else {
     return [];
   }
+};
+
+export const copyFunc = (txt, title) => {
+  // const txt = `app.prodox-ex.com/register?ref=${referralCode}`;
+  const input = document.createElement("input");
+  input.value = txt;
+  document.body.appendChild(input);
+  input.select();
+  document.execCommand("copy");
+  document.body.removeChild(input);
+  // successNotification(title);
+  let sNotification = (message) => toast.success(message);
+  sNotification(title);
+};
+
+export const toDecimal = (num, decimal) => {
+  let result = parseFloat(num.toFixed(decimal));
+  return result;
+};
+
+export const useOutsideClick = (ref, onClickOut) => {
+  useEffect(() => {
+    const onCLick = (target) => !ref?.contains(target) && onClickOut?.();
+    document.addEventListener("click", onCLick);
+    return () => document.removeEventListener("click", onCLick);
+  }, []);
 };

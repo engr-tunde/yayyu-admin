@@ -67,6 +67,28 @@
     transform: translateY(0.8);
   }
 }
+@keyframes slideInRight {
+  0% {
+    transform: translateX(30vw);
+  }
+  100% {
+    transform: translateX(15vw);
+  }
+  100% {
+    transform: translateX(0vw);
+  }
+}
+@keyframes slideOutRight {
+  0% {
+    transform: translateX(0vw);
+  }
+  100% {
+    transform: translateX(150vw);
+  }
+  100% {
+    transform: translateX(30vw);
+  }
+}
 
 .dancingSlide {
   animation: dancingSlide 3s linear infinite;
@@ -82,4 +104,10 @@
 }
 .scaleBannerImg {
   animation: scaleBannerImg 3s linear infinite;
+}
+.slideInRight {
+  animation: slideInRight 0.2s linear;
+}
+.slideOutRight {
+  animation: slideOutRight 0.3s linear;
 }

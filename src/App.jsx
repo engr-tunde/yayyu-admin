@@ -1,35 +1,33 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import DashboardPage from "./pages/dashboard/index.jsx";
 import NotFound from "./pages/404";
 import LoginPage from "./pages/auth/login/index.jsx";
 import ForgotPasswordPage from "./pages/auth/forgot-password/index.jsx";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-import EditPasswordPage from "./pages/dashboard/EditPasswordPage.jsx";
 import VerifyEmailPage from "./pages/auth/verify-email/index.jsx";
 import ResetPasswordPage from "./pages/auth/reset-password/index.jsx";
 import RegisterPage from "./pages/auth/register/index.jsx";
-import AboutPage from "./pages/about/index.jsx";
-import Footer from "./components/Footer.jsx";
-import MarketsPage from "./pages/markets/index.jsx";
-import ContactPage from "./pages/contact/index.jsx";
-import APIPage from "./pages/api/index.jsx";
-import EditProfilePage from "./pages/dashboard/EditProfilePage.jsx";
-import RequestPage from "./pages/dashboard/RequestPage.jsx";
-import MyRequestsPage from "./pages/dashboard/MyRequestsPage.jsx";
-import NavBar from "./components/NavBar.jsx";
-import CareersPage from "./pages/careers/index.jsx";
-import IndustryUpdatesPage from "./pages/blog/industry-updates.jsx";
-import ProductUpdatesPage from "./pages/blog/product-updates.jsx";
-import BlogSinglePage from "./pages/blog/blog-single-page.jsx";
-import M2MPage from "./pages/m2m/index.jsx";
-import HomePage from "./pages/home/index";
+
+import DashboardLayout from "./layouts/DashboardLayout.jsx";
+import DashboardPage from "./pages/dashboard/index.jsx";
+import UsersPage from "./pages/users/index.jsx";
+import SingleUserPage from "./pages/users/[id]/index.jsx";
+import AdminsPage from "./pages/admins/index.jsx";
+import CategoriesPage from "./pages/categories/index.jsx";
+import ProductsPage from "./pages/products/index.jsx";
+import AuthLayout from "./layouts/AuthLayout.jsx";
+import PendingOrdersPage from "./pages/orders/pending.jsx";
+import SingleOrderPage from "./pages/orders/[id]/index.jsx";
+import CompletedOrdersPage from "./pages/orders/completed.jsx";
+import CanceledOrdersPage from "./pages/orders/canceled.jsx";
+import AllOrdersPage from "./pages/orders/index.jsx";
+import ShippingPage from "./pages/shipping/index.jsx";
 
 function App() {
   return (
     <>
       <BrowserRouter>
-        <NavBar />
+        {/* <NavBar /> */}
         <div className="">
           <ToastContainer
             position="top-right"
@@ -43,34 +41,39 @@ function App() {
             pauseOnHover
           />
           <Routes>
-            <Route path="/" element={<HomePage />} />
-            <Route path="/about" element={<AboutPage />} />
-            <Route path="/careers" element={<CareersPage />} />
-            <Route path="/industry-updates" element={<IndustryUpdatesPage />} />
-            <Route path="/product-updates" element={<ProductUpdatesPage />} />
-            <Route path="/posts/:permalink" element={<BlogSinglePage />} />
+            <Route element={<DashboardLayout />}>
+              <Route path="/" element={<DashboardPage />} />
+              <Route path="/users" element={<UsersPage />} />
+              <Route path="/users/:id" element={<SingleUserPage />} />
+              <Route path="/admins" element={<AdminsPage />} />
+              <Route path="/categories" element={<CategoriesPage />} />
+              <Route path="/products" element={<ProductsPage />} />
+              <Route path="/shipping" element={<ShippingPage />} />
+              <Route path="/orders" element={<AllOrdersPage />} />
+              <Route path="/orders/pending" element={<PendingOrdersPage />} />
+              <Route path="/orders/canceled" element={<CanceledOrdersPage />} />
+              <Route
+                path="/orders/completed"
+                element={<CompletedOrdersPage />}
+              />
+              <Route path="/orders/:id" element={<SingleOrderPage />} />
+              {/* <Route path="/orders" element={<OrdersPage />} /> */}
+              {/* item_slug */}
+              {/* <Route path="/tokens/buy-sell" element={<BuySellTokensPage />} /> */}
+            </Route>
 
-            <Route path="/m2m" element={<M2MPage />} />
+            <Route element={<AuthLayout />}>
+              <Route path="/register" element={<RegisterPage />} />
+              <Route path="/verify-account" element={<VerifyEmailPage />} />
+              <Route path="/login" element={<LoginPage />} />
+              <Route path="/forgot-password" element={<ForgotPasswordPage />} />
+              <Route path="/reset-password" element={<ResetPasswordPage />} />
+            </Route>
 
-            <Route path="/markets" element={<MarketsPage />} />
-            <Route path="/contact" element={<ContactPage />} />
-            <Route path="/api" element={<APIPage />} />
-
-            <Route path="/dashboard" element={<DashboardPage />} />
-            <Route path="/edit-profile" element={<EditProfilePage />} />
-            <Route path="/edit-password" element={<EditPasswordPage />} />
-            <Route path="/request-service" element={<RequestPage />} />
-            <Route path="/my-requests" element={<MyRequestsPage />} />
-
-            <Route path="/register" element={<RegisterPage />} />
-            <Route path="/verify-account" element={<VerifyEmailPage />} />
-            <Route path="/login" element={<LoginPage />} />
-            <Route path="/forgot-password" element={<ForgotPasswordPage />} />
-            <Route path="/reset-password" element={<ResetPasswordPage />} />
             <Route path="/*" element={<NotFound />} />
           </Routes>
         </div>
-        <Footer />
+        {/* <Footer /> */}
       </BrowserRouter>
     </>
   );

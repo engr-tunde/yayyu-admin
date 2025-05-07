@@ -1,11 +1,54 @@
 import * as yup from "yup";
+import { z } from "zod";
 
-export const validateJoin = () => {
-  const validationSchema = yup.object().shape({
-    email: yup.string().trim().required("Email or Phone Number is required"),
+export const validateAddUser = z.object({
+  first_name: z.string().min(1, { message: "First name is missing!" }),
+  last_name: z.string().min(1, { message: "Last name is missing!" }),
+  email: z.string().email({ message: "Invalid email adress" }),
+  phone: z.string().optional(),
+});
+
+export const validateAddAdmin = z
+  .object({
+    username: z.string().min(1, { message: "Username is missing!" }),
+    email: z.string().email({ message: "Invalid email adress" }),
+    password: z.string().optional(),
+    confirmPassword: z.string().optional(),
+  })
+  .refine((data) => data.password === data.confirmPassword, {
+    message: "Passwords don't match",
+    path: ["confirmPassword"],
   });
-  return validationSchema;
-};
+
+export const validateAddCategory = z.object({
+  category: z.string().min(1, { message: "Category is missing!" }),
+});
+
+export const validateAddProduct = (cats) =>
+  z.object({
+    item_name: z.string().min(1, { message: "Product name is missing!" }),
+    category: z.enum(cats, {
+      message: "Product category is required!",
+    }),
+    description: z
+      .string()
+      .min(1, { message: "Product description is missing!" }),
+    specification: z
+      .string()
+      .min(1, { message: "Product specification is missing!" }),
+    original_price: z.string().min(1, { message: "Product price is missing!" }),
+    new_price: z.string().optional(),
+    sizes: z.string().optional(),
+    colors: z.string().optional(),
+  });
+
+export const validateAddShipping = z.object({
+  location: z.string().min(1, { message: "Location is missing!" }),
+  delivery_duration: z
+    .string()
+    .min(1, { message: "Delivery duration is missing!" }),
+  fee: z.coerce.number().min(1, { message: "Delivery fee is missing!" }),
+});
 
 export const validateLogin = () => {
   const validationSchema = yup.object().shape({
@@ -47,6 +90,20 @@ export const validateSignup = () => {
   });
   return validationSchema;
 };
+
+export const validateAddCoin = z.object({
+  name: z.string().min(1, { message: "Token name is missing!" }),
+  symbol: z.string().min(1, { message: "Token symbol is missing!" }),
+  address: z.string().min(1, { message: "Token contract address is missing!" }),
+  chainId: z.string().min(1, { message: "Token chain ID is missing!" }),
+  decimal: z.string().min(1, { message: "Token decimal is missing!" }),
+  type: z.enum(["buy-sell", "swap", "p2p"], {
+    message: "Token listing type is required!",
+  }),
+  // logoURI: z.any().refine((files) => files?.length >= 1, {
+  //   message: "logo URI is required!",
+  // }),
+});
 
 export const validateUpdateProfile = () => {
   const phoneRegExp = /^[\d|\+|\(]+[\)|\d|\s|-]*[\d]$/;
@@ -128,6 +185,66 @@ export const validateRequestService = () => {
       .trim()
       .required("Provide your social media username"),
     walletAddress: yup.string().trim().required("Wallet address is missing"),
+  });
+  return validationSchema;
+};
+
+// Trade
+export const validateP2pTrade = (selectedTrade) => {
+  const validationSchema = yup.object().shape({
+    pay: yup
+      .string()
+      .trim()
+      .required("How much are you paying?")
+      .test(
+        "isLarger",
+        `Amount already more than trade total quanity ${selectedTrade?.order?.quantity}`,
+        (value, selectedTrade2) => {
+          if (selectedTrade?.order?.quantity < value) return false;
+          return true;
+        }
+      )
+      .test(
+        "isLarger",
+        `Amount cannot be more than ${selectedTrade?.order?.max_limit}`,
+        (value, selectedTrade2) => {
+          if (selectedTrade?.order?.max_limit < value) return false;
+          return true;
+        }
+      )
+      .test(
+        "isLower",
+        "Amount cannot be less than the trade min limit",
+        (value, selectedTrade2) => {
+          if (selectedTrade?.order?.min_limit > value) return false;
+          return true;
+        }
+      ),
+  });
+  return validationSchema;
+};
+
+export const validateTradeChat = () => {
+  const validationSchema = yup.object().shape({
+    message: yup.string().trim().required("Message is empty"),
+  });
+  return validationSchema;
+};
+
+export const validateAddBank = () => {
+  const validationSchema = yup.object().shape({
+    account_name: yup.string().trim().required("Account name is empty"),
+    account_number: yup.string().trim().required("Account number is empty"),
+    bank_name: yup.string().trim().required("Bank name is empty"),
+  });
+  return validationSchema;
+};
+
+export const validateAddMobileMoney = () => {
+  const validationSchema = yup.object().shape({
+    operator: yup.string().trim().required("Operator name is empty"),
+    name: yup.string().trim().required("Account name is empty"),
+    phone_number: yup.string().trim().required("Phone number is empty"),
   });
   return validationSchema;
 };

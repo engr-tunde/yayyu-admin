@@ -8,6 +8,7 @@ import {
   FaTwitter,
 } from "react-icons/fa";
 import { Link } from "react-router-dom";
+import { successNotification } from "../utils/helpers";
 
 const Footer = () => {
   useEffect(() => {
@@ -78,11 +79,25 @@ const Footer = () => {
             <p className="font-semibold text-[18px] lg:text-xl text-[#eee]">
               Products
             </p>
-            <Link to="">Swap</Link>
-            <Link to="">Buy & Sell</Link>
-            <Link to="">P2P</Link>
-            <Link to="">Mobile Apps</Link>
-            <Link to="">Titus Token</Link>
+            <Link to="/swap">Swap</Link>
+            <Link to="/buy-sell">Buy & Sell</Link>
+            <Link to="/m2m">P2P</Link>
+            <div
+              className="cursor-pointer"
+              onClick={() => {
+                successNotification("Apps are coming soon!");
+              }}
+            >
+              Mobile Apps
+            </div>
+            <div
+              className="cursor-pointer"
+              onClick={() => {
+                successNotification("Our Native Token is coming soon!");
+              }}
+            >
+              {import.meta.env.VITE_APP_NAME} Token
+            </div>
           </div>
           <div className="col-span-1 flex flex-col gap-3 text-sm">
             <p className="font-semibold text-[18px] lg:text-xl text-[#eee]">

@@ -1,5 +1,5 @@
-import { useState } from 'react';
-import axios from 'axios';
+import { useState } from "react";
+import axios from "axios";
 axios.defaults.withCredentials = true;
 
 const sender = async (url, payload) => {
@@ -9,9 +9,13 @@ const sender = async (url, payload) => {
   const [error, setError] = useState(null);
 
   try {
-    const response = await axios.post(`${process.env.REACT_APP_API_URL}/${url}`, payload, {
-      withCredentials: true,
-    });
+    const response = await axios.post(
+      `${import.meta.env.VITE_API_URL}/${url}`,
+      payload,
+      {
+        withCredentials: true,
+      }
+    );
     console.log(response);
     // setStatus(response.status);
     // setData(response.data.data);

@@ -16,6 +16,7 @@ const VerifyEmailBody = () => {
   const history = useNavigate();
   const location = useLocation();
   const userId = location.state.userId;
+  console.log({ userId });
 
   useEffect(() => {
     const interval = setInterval(() => {
@@ -108,14 +109,25 @@ const VerifyEmailBody = () => {
                 <InputField name="otp" placeholder="Enter OTP" />
               </div>
               <SubmitButton title="Verify Email" className="mt-6 w-[100%]" />
-              <div className="text-[14px] md:text-[16px] text-center mt-[20px] flex justify-center gap-2">
-                Didn't recive the OTP?
-                <div
-                  onClick={resendOTP}
-                  className="text-[#fff] font-semibold cursor-pointer"
-                >
-                  Resend OTP
-                </div>
+              <div className="mt-[20px]">
+                {seconds > 0 || minutes > 0 ? (
+                  <div className="flex align-items-center text-sm">
+                    Time Remaining: {minutes < 10 ? `0${minutes}` : minutes}:
+                    {seconds < 10 ? `0${seconds}` : seconds}
+                  </div>
+                ) : (
+                  <div className="flex items-center justify-between">
+                    <div className="flex align-items-center text-sm">
+                      Didn&apos;t recieve code?
+                    </div>
+                    <div
+                      onClick={resendOTP}
+                      className="text-[#fff] font-semibold cursor-pointer text-sm underline"
+                    >
+                      Resend OTP
+                    </div>
+                  </div>
+                )}
               </div>
             </CustomFormik>
           </div>

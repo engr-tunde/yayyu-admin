@@ -74,7 +74,7 @@ const ForgotPasswordBody = () => {
                 title="Send Password Reset Link"
                 className="mt-5 w-[100%]"
               />
-              <div className="text-[14px] md:text-[16px] text-center mt-[20px] flex justify-between gap-2">
+              <div className="text-[13px] md:text-[14px] text-center mt-[20px] flex justify-between gap-2">
                 Don't have an account yet?
                 <Link to="/register" className="text-[#fff]">
                   Register
