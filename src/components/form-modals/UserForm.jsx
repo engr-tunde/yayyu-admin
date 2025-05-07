@@ -1,5 +1,3 @@
-"use client";
-
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
 import { z } from "zod";
@@ -8,7 +6,7 @@ import { addUser, fetchUsers, updateUser } from "../../api";
 import { validateAddUser } from "../../utils/validate";
 import { errorNotification, successNotification } from "../../utils/helpers";
 
-const StudentForm = ({ type, data, setOpen }) => {
+const UserForm = ({ type, data, setOpen }) => {
   const {
     register,
     handleSubmit,
@@ -96,4 +94,4 @@ const StudentForm = ({ type, data, setOpen }) => {
   );
 };
 
-export default StudentForm;
+export default UserForm;
