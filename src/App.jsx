@@ -22,6 +22,7 @@ import CompletedOrdersPage from "./pages/orders/completed.jsx";
 import CanceledOrdersPage from "./pages/orders/canceled.jsx";
 import AllOrdersPage from "./pages/orders/index.jsx";
 import ShippingPage from "./pages/shipping/index.jsx";
+import SingleProductPage from "./pages/products/[id]/index.jsx";
 
 function App() {
   return (
@@ -48,6 +49,7 @@ function App() {
               <Route path="/admins" element={<AdminsPage />} />
               <Route path="/categories" element={<CategoriesPage />} />
               <Route path="/products" element={<ProductsPage />} />
+              <Route path="/products/:id" element={<SingleProductPage />} />
               <Route path="/shipping" element={<ShippingPage />} />
               <Route path="/orders" element={<AllOrdersPage />} />
               <Route path="/orders/pending" element={<PendingOrdersPage />} />

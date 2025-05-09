@@ -22,7 +22,9 @@ const DELETE_CATEGORY = "/shop-management/delete-category";
 
 const ADD_PRODUCT = "/shop-management/add-product";
 const UPDATE_PRODUCT = "/shop-management/update-product";
+const UPDATE_PRODUCT_COVER_IMG = "/shop-management/update-product-cover-img";
 const FETCH_PRODUCTS = "/shop-management/fetch-all-products";
+const FETCH_SINGLE_PRODUCT = "/shop-management/single-product";
 const DELETE_PRODUCT = "/shop-management/delete-product";
 
 const FETCH_ORDERS = "/shop-management/fetch-all-orders";
@@ -58,7 +60,9 @@ export {
   //
   ADD_PRODUCT,
   UPDATE_PRODUCT,
+  UPDATE_PRODUCT_COVER_IMG,
   FETCH_PRODUCTS,
+  FETCH_SINGLE_PRODUCT,
   DELETE_PRODUCT,
 
   //

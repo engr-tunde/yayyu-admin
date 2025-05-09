@@ -48,7 +48,7 @@ const ProductForm = ({ type, data, setOpen, categories }) => {
   const onSubmit = handleSubmit(async (fdata) => {
     console.log("data", fdata);
     const formData = new FormData();
-    if (!coverImg) {
+    if (type === "create" && !coverImg) {
       errorNotification("Product cover image is missing!");
       setCoverImgError("");
     } else {
@@ -81,8 +81,11 @@ const ProductForm = ({ type, data, setOpen, categories }) => {
       const response =
         type === "create"
           ? await addProduct(formData)
-          : await updateProduct(formData, data._id);
+          : await updateProduct(fdata, data._id);
       console.log("response", response);
+      setTimeout(() => {
+        setOpen(false);
+      }, 1000);
       if (response?.status === 200) {
         successNotification(response.data.message);
       } else {
@@ -145,7 +148,7 @@ const ProductForm = ({ type, data, setOpen, categories }) => {
 
       <div className="w-full">
         <FormModalInputField
-          label="Product Specification (separate with comma)"
+          label="Product Specification (separate with '; ')"
           name="specification"
           defaultValue={data?.specification.join(". ")}
           register={register}
@@ -186,7 +189,7 @@ const ProductForm = ({ type, data, setOpen, categories }) => {
         </div>
         <div className="w-[45%]">
           <FormModalInputField
-            label="Availables colors"
+            label="Availables colors (separate with '; ')"
             name="colors"
             defaultValue={data?.colors}
             register={register}
@@ -195,27 +198,30 @@ const ProductForm = ({ type, data, setOpen, categories }) => {
         </div>
       </div>
 
-      <div className="flex items-center justify-between">
-        <div className="w-[45%]">
-          <FormModalFileInputField
-            handleChange={handleCoverImgChange}
-            label="Product Cover Image"
-            name="img"
-            nameText={coverImgText}
-            error={coverImgError}
-          />
+      {type === "create" ? (
+        <div className="flex items-center justify-between">
+          <div className="w-[45%]">
+            <FormModalFileInputField
+              handleChange={handleCoverImgChange}
+              label="Product Cover Image"
+              name="img"
+              nameText={coverImgText}
+              error={coverImgError}
+            />
+          </div>
+          <div className="w-[45%]">
+            <FormModalFileInputField
+              handleChange={handleImagesChange}
+              label="Product Images"
+              name="images"
+              nameText={imagesText}
+              error={imagesError}
+              multiple={true}
+            />
+          </div>
         </div>
-        <div className="w-[45%]">
-          <FormModalFileInputField
-            handleChange={handleImagesChange}
-            label="Product Images"
-            name="images"
-            nameText={imagesText}
-            error={imagesError}
-            multiple={true}
-          />
-        </div>
-      </div>
+      ) : null}
+
       <button className="bg-blue-400 text-white p-2 rounded-md">
         {type === "create" ? "Create" : "Update"}
       </button>

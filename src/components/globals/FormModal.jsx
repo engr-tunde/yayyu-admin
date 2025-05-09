@@ -18,6 +18,7 @@ import ProductForm from "../form-modals/ProductForm";
 import { FaCheck, FaDoorClosed, FaPause } from "react-icons/fa";
 import { useNavigate } from "react-router-dom";
 import ShippingForm from "../form-modals/ShippingForm";
+import ProductCoverIMGForm from "../form-modals/ProductCoverIMGForm";
 
 const FormModal = ({ table, type, data, id, mutate, categories }) => {
   const size = type === "create" ? "w-8 h-8" : "w-7 h-7";
@@ -56,6 +57,9 @@ const FormModal = ({ table, type, data, id, mutate, categories }) => {
           categories={categories}
         />
       ) : null,
+    productCoverIMG: (type, data) => (
+      <ProductCoverIMGForm data={data} setOpen={setOpen} />
+    ),
     order: (type, data) => (
       <CategoryForm type={type} data={data} setOpen={setOpen} />
     ),

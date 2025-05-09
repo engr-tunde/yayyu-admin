@@ -24,11 +24,13 @@ import {
   FETCH_PRODUCTS,
   FETCH_SHIPPINGS,
   FETCH_SINGLE_ORDER,
+  FETCH_SINGLE_PRODUCT,
   FETCH_USERS,
   PEND_ORDER,
   UPDATE_ADMIN,
   UPDATE_CATEGORY,
   UPDATE_PRODUCT,
+  UPDATE_PRODUCT_COVER_IMG,
   UPDATE_SHIPPING,
   UPDATE_USER,
 } from "../constants/routes";
@@ -167,6 +169,15 @@ export const updateProduct = async (values, id) => {
   );
   return result;
 };
+export const updateProductCoverImg = async (values, id) => {
+  const result = await mutationRequest(
+    `${UPDATE_PRODUCT_COVER_IMG}/${id}`,
+    "put",
+    values,
+    true
+  );
+  return result;
+};
 export const deleteProduct = async (id) => {
   const result = await mutationRequest(
     `${DELETE_PRODUCT}/${id}`,
@@ -175,6 +186,18 @@ export const deleteProduct = async (id) => {
     true
   );
   return result;
+};
+export const fetchSingleProduct = (id) => {
+  const { data, error, mutate } = useSWR(
+    { url: `${FETCH_SINGLE_PRODUCT}/${id}`, withCredentials: true },
+    fetcher
+  );
+  return {
+    product: data,
+    productLoading: !error && !data,
+    productError: error,
+    mutate,
+  };
 };
 export const fetchProducts = () => {
   const { data, error, mutate } = useSWR(
@@ -252,7 +275,6 @@ export const deleteOrder = async (id) => {
 };
 
 // Shipping
-// Products
 export const addShipping = async (values) => {
   const result = await mutationRequest(ADD_SHIPPING, "post", values, true);
   return result;

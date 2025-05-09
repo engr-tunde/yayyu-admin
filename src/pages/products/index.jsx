@@ -88,7 +88,7 @@ const ProductsPage = () => {
 
       <td>
         <div className="flex items-center gap-2">
-          <Link to={`/products/${item.item_slug}`}>
+          <Link to={`/products/${item._id}`}>
             <button className="w-7 h-7 flex items-center justify-center rounded-full bg-titusSky">
               <img
                 src="/assets/images/view.png"
