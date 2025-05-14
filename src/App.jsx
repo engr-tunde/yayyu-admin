@@ -4,9 +4,7 @@ import LoginPage from "./pages/auth/login/index.jsx";
 import ForgotPasswordPage from "./pages/auth/forgot-password/index.jsx";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-import VerifyEmailPage from "./pages/auth/verify-email/index.jsx";
 import ResetPasswordPage from "./pages/auth/reset-password/index.jsx";
-import RegisterPage from "./pages/auth/register/index.jsx";
 
 import DashboardLayout from "./layouts/DashboardLayout.jsx";
 import DashboardPage from "./pages/dashboard/index.jsx";
@@ -59,14 +57,9 @@ function App() {
                 element={<CompletedOrdersPage />}
               />
               <Route path="/orders/:id" element={<SingleOrderPage />} />
-              {/* <Route path="/orders" element={<OrdersPage />} /> */}
-              {/* item_slug */}
-              {/* <Route path="/tokens/buy-sell" element={<BuySellTokensPage />} /> */}
             </Route>
 
             <Route element={<AuthLayout />}>
-              <Route path="/register" element={<RegisterPage />} />
-              <Route path="/verify-account" element={<VerifyEmailPage />} />
               <Route path="/login" element={<LoginPage />} />
               <Route path="/forgot-password" element={<ForgotPasswordPage />} />
               <Route path="/reset-password" element={<ResetPasswordPage />} />

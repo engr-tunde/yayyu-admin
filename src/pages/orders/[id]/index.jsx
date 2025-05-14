@@ -251,12 +251,30 @@ const SingleOrderPage = () => {
                 />
               </div>
             </div>
-            <div className="bg-titusDarkGray p-4 rounded-md lg:mb-10">
-              <h1 className="uppercase"> Delivery Status</h1>
-              <div className="mt-4 flex flex-col gap-4 flex-wrap text-sm">
-                <span className="font-semibold">
-                  {order?.data?.delivery_status}
-                </span>
+            <div className="grid grid-cols-3 gap-5 lg:mb-10">
+              <div className="col-span-1 bg-titusDarkGray p-4 rounded-md">
+                <h1 className="uppercase"> Delivery</h1>
+                <div className="mt-4 flex flex-col gap-4 flex-wrap text-sm">
+                  <span className="font-semibold">
+                    {order?.data?.delivery_status}
+                  </span>
+                </div>
+              </div>
+              <div className="col-span-1 bg-titusDarkGray p-4 rounded-md">
+                <h1 className="uppercase"> Payment</h1>
+                <div className="mt-4 flex flex-col gap-4 flex-wrap text-sm">
+                  <span className="font-semibold">
+                    {order?.data?.payment_status}
+                  </span>
+                </div>
+              </div>
+              <div className="col-span-1 bg-titusDarkGray p-4 rounded-md">
+                <h1 className="uppercase"> Reference</h1>
+                <div className="mt-4 flex flex-col gap-4 flex-wrap text-sm">
+                  <span className="font-semibold">
+                    {order?.data?.payment_reference}
+                  </span>
+                </div>
               </div>
             </div>
             <div className="bg-titusDarkGray p-4 rounded-md">

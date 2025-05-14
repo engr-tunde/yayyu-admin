@@ -1,6 +1,5 @@
 import { useState } from "react";
 import UserForm from "../form-modals/UserForm";
-import TokenForm from "../form-modals/TokenForm";
 import {
   cancelOrder,
   completeOrder,
@@ -36,9 +35,6 @@ const FormModal = ({ table, type, data, id, mutate, categories }) => {
   const history = useNavigate();
 
   const forms = {
-    token: (type, data) => (
-      <TokenForm type={type} data={data} setOpen={setOpen} />
-    ),
     user: (type, data) => (
       <UserForm type={type} data={data} setOpen={setOpen} />
     ),
